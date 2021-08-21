@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>base</title>
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css"%}"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container" class="navbar-nav">
+        <a class=" nav-item navbar-brand" href="{% url 'index' %}">Brand</a>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-header nav-link" href="{% url 'admin:index' %}">Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link" href="{% url 'basic_app:other' %}">Other</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </nav>
+    <div class="container">
+
+      {% block body_block %}
+      <!-- anything ouside of this will be inherited if you extend-->
+      {% endblock %}
+    </div>
+
+  </body>
+</html>
